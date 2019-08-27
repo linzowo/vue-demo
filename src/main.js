@@ -14,9 +14,11 @@ import router from './router.js'
 
 
 // 按需引入mintui组件
-import { Header } from 'mint-ui';
+import { Header,Swipe, SwipeItem } from 'mint-ui';
 // 按需挂载mintui
 Vue.component(Header.name, Header);
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 
 // 引入MUI样式库
 import './lib/mui/css/mui.css'
