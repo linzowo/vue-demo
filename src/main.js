@@ -2,6 +2,15 @@
 
 // 引入vue
 import Vue from 'vue';
+// 引入路由模块
+import VueRouter from 'vue-router';
+// 就路由模块挂载到vue上
+Vue.use(VueRouter);
+
+// 将自定义的router模块引入
+import router from './router.js'
+
+
 
 
 // 按需引入mintui组件
@@ -21,7 +30,8 @@ var vm = new Vue({
   el: '#app',
   data: {},
   methods: {},
-  render: c => c(app)
+  render: c => c(app),
+  router
 })
 
 
