@@ -4,8 +4,13 @@
 import Vue from 'vue';
 // 引入路由模块
 import VueRouter from 'vue-router';
-// 就路由模块挂载到vue上
+// 将路由模块挂载到vue上
 Vue.use(VueRouter);
+
+// 引入vue-resource模块
+import VueResource from 'vue-resource';
+// 将VueResource挂载到vue中
+Vue.use(VueResource);
 
 // 将自定义的router模块引入
 import router from './router.js'
