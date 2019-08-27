@@ -12,6 +12,7 @@ import SearchContainer from './components/SearchContainer.vue'
 // 创建一个vue-router实例
 const router = new VueRouter({
   routes: [
+    { path: '/', redirect: '/home'},
     { path: '/home', component: HomeContainer},
     { path: '/member', component: MemberContainer},
     { path: '/shopcart', component: ShopcartContainer},

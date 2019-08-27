@@ -4,7 +4,9 @@
     <mt-header fixed title="固定在顶部">顶部标签</mt-header>
 
     <!-- router-view区域 -->
-    <router-view></router-view>
+    <transition>
+      <router-view></router-view>
+    </transition>
 
     <!-- tabbar 区域 -->
     <nav class="mui-bar mui-bar-tab">
@@ -34,7 +36,26 @@
 </script>
 
 <style lang="scss" scope>
+html{
+  background-color: #fff;
+}
 .app-container {
-  padding: 40px;
+  padding-top: 40px;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+// 路由区动画效果
+.v-enter{
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+.v-enter-active,
+.v-leave-active{
+  transition: all .5s ease;
 }
 </style>
