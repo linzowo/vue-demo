@@ -4,6 +4,7 @@
     <mt-header fixed title="固定在顶部">顶部标签</mt-header>
 
     <!-- router-view区域 -->
+    <router-view></router-view>
 
     <!-- tabbar 区域 -->
     <nav class="mui-bar mui-bar-tab">
@@ -26,8 +27,6 @@
         <span class="mui-tab-label">搜索</span>
       </router-link>
     </nav>
-
-    <h1>这是一个app组件</h1>
   </div>
 </template>
 
