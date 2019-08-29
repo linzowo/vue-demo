@@ -15,6 +15,12 @@ Vue.use(VueResource);
 // 将自定义的router模块引入
 import router from './router.js'
 
+// 引入时间格式化组件
+import moment from 'moment'
+// 定义一个全局的过滤器
+Vue.filter('dateFormat', function(dataStr,pattern = 'YYYY年MM月DD日'){
+  return moment(dataStr).format(pattern)
+})
 
 
 

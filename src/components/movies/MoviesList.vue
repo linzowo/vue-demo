@@ -7,7 +7,7 @@
           <div class="mui-media-body">
             <h1>{{item.title}}</h1>
             <p class="mui-ellipsis">
-              <span>上映时间：{{ item.mainland_pubdate }}</span>
+              <span>上映时间：{{ item.mainland_pubdate | dateFormat }}</span>
               <span>评分：{{ item.rating.average }}</span>
             </p>
           </div>
