@@ -2,8 +2,8 @@
   <div>
     <!-- 轮播图区域 -->
     <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="(item, i) in imgList" :key="item.img">
-        <img :src="item.img" alt />
+      <mt-swipe-item v-for="item in imgList" :key="item.img">
+        <img :src="item.img" />
       </mt-swipe-item>
     </mt-swipe>
 
@@ -13,7 +13,7 @@
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <router-link to="/home/list">
             <img src="../../images/menu1.png" alt />
-            <div class="mui-media-body">新闻资讯</div>
+            <div class="mui-media-body">正在热映</div>
           </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">

@@ -12,14 +12,14 @@ import ShopcartContainer from "./components/tabbar/ShopcartContainer.vue";
 import SearchContainer from "./components/tabbar/SearchContainer.vue";
 
 // 新闻列表区域
-import NewsList from "./components/news/NewsList.vue";
+import MoviesList from "./components/movies/MoviesList.vue";
 
 // 创建一个vue-router实例
 const router = new VueRouter({
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: HomeContainer },
-    { path: "/home/list", component: NewsList },
+    { path: "/home/list", component: MoviesList },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
     { path: "/search", component: SearchContainer }

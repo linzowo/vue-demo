@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!-- header 区域 -->
-    <mt-header fixed title="固定在顶部">顶部标签</mt-header>
+    <mt-header fixed title="我的移动端网页"></mt-header>
 
     <!-- router-view区域 -->
     <transition>
@@ -40,7 +40,7 @@ html{
   background-color: #fff;
 }
 .app-container {
-  padding-top: 40px;
+  padding: 40px 0;
   background-color: #fff;
   overflow-x: hidden;
 }
