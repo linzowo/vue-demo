@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul class="mui-table-view">
-      <li class="mui-table-view-cell mui-media" v-for="item in movieList" :key="item.id">
-        <a href="javascript:;">
+      <li class="mui-table-view-cell mui-media" v-for="(item,i) in movieList" :key="item.id">
+        <router-link :to="{name: 'movieinfo', query: {index:i},params: { moviedata: item}}">
           <img class="mui-media-object mui-pull-left" :src="item.images.small" />
           <div class="mui-media-body">
             <h1>{{item.title}}</h1>
@@ -11,7 +11,7 @@
               <span>评分：{{ item.rating.average }}</span>
             </p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

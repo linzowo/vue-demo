@@ -11,8 +11,9 @@ import MemberContainer from "./components/tabbar/MemberContainer.vue";
 import ShopcartContainer from "./components/tabbar/ShopcartContainer.vue";
 import SearchContainer from "./components/tabbar/SearchContainer.vue";
 
-// 新闻列表区域
+// 电影列表区域
 import MoviesList from "./components/movies/MoviesList.vue";
+import MovieInfo from "./components/movies/MovieInfo.vue";
 
 // 创建一个vue-router实例
 const router = new VueRouter({
@@ -20,6 +21,7 @@ const router = new VueRouter({
     { path: "/", redirect: "/home" },
     { path: "/home", component: HomeContainer },
     { path: "/home/list", component: MoviesList },
+    { path: "/home/movieinfo/", name: 'movieinfo', component: MovieInfo },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
     { path: "/search", component: SearchContainer }
