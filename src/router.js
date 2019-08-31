@@ -15,13 +15,17 @@ import SearchContainer from "./components/tabbar/SearchContainer.vue";
 import MoviesList from "./components/movies/MoviesList.vue";
 import MovieInfo from "./components/movies/MovieInfo.vue";
 
+// 图片分享区域
+import PhotoList from "./components/photos/PhotoList.vue"
+
 // 创建一个vue-router实例
 const router = new VueRouter({
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: HomeContainer },
     { path: "/home/list", component: MoviesList },
-    { path: "/home/movieinfo/", name: 'movieinfo', component: MovieInfo },
+    { path: "/home/movieinfo", name: 'movieinfo', component: MovieInfo },
+    { path: "/home/photolist", component: PhotoList },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
     { path: "/search", component: SearchContainer }
