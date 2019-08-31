@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="mui-card-content">
-        <img :src="movie.images.large" alt width="100%" />
+        <img :src="movie.images.small" alt width="100%" />
         <p>导演：{{ movie.directors[0].name }}</p>
         <p>
           演员：

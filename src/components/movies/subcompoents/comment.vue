@@ -12,7 +12,7 @@
         <div class="cmt-body">{{item[4]}}</div>
       </div>
     </div>
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
+    <mt-button type="danger" size="large" plain @click="getMoreComment">加载更多</mt-button>
   </div>
 </template>
 
@@ -20,7 +20,8 @@
 export default {
   data() {
     return {
-        commentsList: []
+        commentsList: [],
+        page: 1
     };
   },
   created(){
@@ -29,11 +30,15 @@ export default {
   methods: {
       getComment(){
           this.$http
-          .get('http://myvueapi.io/vue-demo-comments.php')
+          .get('http://myvueapi.io/vue-demo-comments.php?page='+this.page)
           .then(result => {
             //   console.log(result.body);
-              this.commentsList = result.body
+              this.commentsList = this.commentsList.concat(result.body)
           })
+      },
+      getMoreComment(){
+          this.page++
+          this.getComment()
       }
   }
 };
