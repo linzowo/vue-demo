@@ -42,28 +42,26 @@ export default {
   },
   methods: {
     getMovieInfo() {
-      //   console.log(this.$route.params.moviedata);
-      if (!this.$route.params.moviedata) {
-        this.$http
-          .jsonp(
-            "http://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=100"
-          )
-          .then(result => {
-            if (result.body == "" || result.body.subjects.length == 0) {
-              Toast("获取数据失败");
-            } else {
-              this.movie = result.body.subjects[this.$route.query.index];
-            }
-          });
-        // console.log(this.$route.query);
-        
-      }else{
-          this.movie = this.$route.params.moviedata;
-      }
+      this.$http
+        .jsonp(
+          "http://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=100"
+        )
+        .then(result => {
+          if (result.body == "" || result.body.subjects.length == 0) {
+            Toast("获取数据失败");
+          } else {
+            this.movie = result.body.subjects[this.$route.query.index];
+          }
+        });
     }
   }
 };
 </script>
 
 <style lang="scss" scope>
+.mui-card-header.mui-card-media {
+  div.mui-media-body {
+    margin-left: 0;
+  }
+}
 </style>

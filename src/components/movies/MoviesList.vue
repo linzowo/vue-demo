@@ -2,7 +2,7 @@
   <div>
     <ul class="mui-table-view">
       <li class="mui-table-view-cell mui-media" v-for="(item,i) in movieList" :key="item.id">
-        <router-link :to="{name: 'movieinfo', query: {index:i},params: { moviedata: item}}">
+        <router-link :to="{name: 'movieinfo', query: {index:i}}">
           <img class="mui-media-object mui-pull-left" :src="item.images.small" />
           <div class="mui-media-body">
             <h1>{{item.title}}</h1>
