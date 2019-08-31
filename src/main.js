@@ -25,11 +25,12 @@ Vue.filter('dateFormat', function(dataStr,pattern = 'YYYY年MM月DD日'){
 
 
 // 按需引入mintui组件
-import { Header,Swipe, SwipeItem } from 'mint-ui';
+import { Header,Swipe, SwipeItem, Button } from 'mint-ui';
 // 按需挂载mintui
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 // 引入MUI样式库
 import './lib/mui/css/mui.css'

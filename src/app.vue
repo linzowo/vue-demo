@@ -40,7 +40,7 @@ html{
   background-color: #fff;
 }
 .app-container {
-  padding: 40px 0;
+  padding: 55px 0;
   background-color: #fff;
   overflow-x: hidden;
 }

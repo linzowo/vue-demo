@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 内容区域 -->
     <div class="mui-card">
       <div class="mui-card-header mui-card-media">
         <div class="mui-media-body">
@@ -27,10 +28,16 @@
         <a class="mui-card-link" @click="$router.go(-1)">查看更多</a>
       </div>
     </div>
+
+    <!-- 评论区域 -->
+    <comment></comment>
   </div>
 </template>
 
 <script>
+// 引入子组件
+import comment from './subcompoents/comment.vue'
+
 export default {
   data() {
     return {
@@ -54,6 +61,9 @@ export default {
           }
         });
     }
+  },
+  components: {
+    comment: comment
   }
 };
 </script>
