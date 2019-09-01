@@ -7,8 +7,7 @@ const presets = [
           firefox: "60",
           chrome: "67",
           safari: "11.1",
-        },
-        useBuiltIns: "usage",
+        }
       },
     ]
   ];
@@ -19,7 +18,7 @@ const presets = [
         {
           "libraryName": "mint-ui",
           "style": true
-        }
-      ,"mint-ui"]
+        }],
+      ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
   ];
   module.exports = { presets, plugins };

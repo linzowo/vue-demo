@@ -1,14 +1,41 @@
 <template>
-    <div>
-        <h1>这是图片分享区</h1>   
+  <div>
+    <div id="slider" class="mui-slider">
+      <div
+        id="sliderSegmentedControl"
+        class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted"
+      >
+        <div class="mui-scroll">
+          <a
+            class="mui-control-item mui-active"
+            href="#item1mobile"
+            data-wid="tab-top-subpage-1.html"
+          >推荐</a>
+          <a class="mui-control-item" href="#item2mobile" data-wid="tab-top-subpage-2.html">热点</a>
+          <a class="mui-control-item" href="#item3mobile" data-wid="tab-top-subpage-3.html">北京</a>
+          <a class="mui-control-item" href="#item4mobile" data-wid="tab-top-subpage-4.html">社会</a>
+          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">娱乐</a>
+          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">娱乐</a>
+          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">娱乐</a>
+          <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">娱乐</a>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    
-
+import mui from "../../lib/mui/js/mui.js";
+mui(".mui-scroll-wrapper").scroll({
+  scrollY: false, //是否竖向滚动
+  scrollX: true, //是否横向滚动
+  startX: 0, //初始化时滚动至x
+  startY: 0, //初始化时滚动至y
+  indicators: true, //是否显示滚动条
+  deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+  bounce: true //是否启用回弹
+});
 </script>
 
 <style lang="scss" scope>
-    
 </style>

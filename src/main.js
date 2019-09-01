@@ -22,15 +22,16 @@ Vue.filter('dateFormat', function(dataStr,pattern = 'YYYY年MM月DD日'){
   return moment(dataStr).format(pattern)
 })
 
-
+// 整体导入Mintui
+// import Mintui from 'mint-ui';
+// Vue.use(Mintui);
 
 // 按需引入mintui组件
 import { Header,Swipe, SwipeItem, Button } from 'mint-ui';
-// 按需挂载mintui
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+Vue.component('mt-header', Header);
+Vue.component('mt-swipe', Swipe);
+Vue.component('mt-swipe-item', SwipeItem);
+Vue.component('mt-button', Button);
 
 // 引入MUI样式库
 import './lib/mui/css/mui.css'
