@@ -21,7 +21,7 @@
 
     <!-- 图片展示区 -->
     <ul class="photo-list">
-      <li v-for="(item,i) in photolist" :key="i">
+      <router-link v-for="(item,i) in photolist" :key="i" :to="{ name: 'photoinfo', query:{ id: i}}" tag="li">
         <img v-lazy="item.img" />
         <div class="photo-content">
           <p class="photo-title">{{ item.title }}</p>
@@ -33,7 +33,7 @@
             </span>
           </div>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

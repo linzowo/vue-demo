@@ -88,4 +88,8 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.mint-header.is-fixed{
+  z-index: 900;
+}
 </style>

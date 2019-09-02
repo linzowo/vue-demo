@@ -36,7 +36,7 @@
 
 <script>
 // 引入子组件
-import comment from './subcompoents/comment.vue'
+import comment from '../subcompoents/comment.vue'
 
 export default {
   data() {

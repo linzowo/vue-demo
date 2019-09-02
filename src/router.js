@@ -17,6 +17,7 @@ import MovieInfo from "./components/movies/MovieInfo.vue";
 
 // 图片分享区域
 import PhotoList from "./components/photos/PhotoList.vue"
+import PhotoInfo from "./components/photos/PhotoInfo.vue"
 
 // 创建一个vue-router实例
 const router = new VueRouter({
@@ -26,6 +27,7 @@ const router = new VueRouter({
     { path: "/home/list", component: MoviesList },
     { path: "/home/movieinfo", name: 'movieinfo', component: MovieInfo },
     { path: "/home/photolist", component: PhotoList },
+    { path: "/home/photoinfo", name: 'photoinfo', component: PhotoInfo },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
     { path: "/search", component: SearchContainer }
