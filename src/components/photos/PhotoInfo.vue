@@ -13,6 +13,12 @@
     </div>
     <hr />
     <div class="info-title-content">
+      <!-- 缩略图展示区 -->
+      <div class="thumb">
+        <vue-preview :slides="thumbList"></vue-preview>
+      </div>
+
+      <!-- 文字展示区 -->
       <p>导演：{{ photoinfo.directors }}</p>
       <p>
         演员：
@@ -35,13 +41,14 @@
 import Toast from "mint-ui";
 
 // 引入评论组件
-import comment from '../subcompoents/comment.vue'
+import comment from "../subcompoents/comment.vue";
 
 export default {
   data() {
     return {
       id: this.$route.query.id,
-      photoinfo: {}
+      photoinfo: {},
+      thumbList: []
     };
   },
   created() {
@@ -58,12 +65,9 @@ export default {
             Toast("没有获取到数据");
           } else {
             let photoInfoObj = result.body.subjects[this.id];
-            console.log(photoInfoObj);
-
             this.photoinfo = {
               title: photoInfoObj.title,
               subtitle: photoInfoObj.original_title,
-              img: photoInfoObj.images.small,
               directors: photoInfoObj.directors[0].name,
               casts: photoInfoObj.casts,
               durations: photoInfoObj.durations[0],
@@ -71,6 +75,17 @@ export default {
               rating: photoInfoObj.rating.average,
               pubdate: photoInfoObj.mainland_pubdate
             };
+            // 因为每个电影只有一张图片，所以只展示一张图片，不做遍历
+            this.thumbList = [
+              {
+                src: photoInfoObj.images.large,
+                msrc: photoInfoObj.images.small,
+                alt: this.photoinfo.title,
+                title: this.photoinfo.title,
+                w: 540,
+                h: 770
+              }
+            ];
           }
         })
         .catch(err => {
@@ -105,6 +120,12 @@ export default {
   p {
     font-size: 14px;
     color: #000;
+  }
+  .thumb{
+    margin: 5px;
+    img{
+      box-shadow: 0 0 8px #999;
+    }
   }
 }
 </style>

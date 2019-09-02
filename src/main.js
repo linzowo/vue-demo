@@ -27,6 +27,10 @@ import Mintui from 'mint-ui';
 Vue.use(Mintui);
 import 'mint-ui/lib/style.css';
 
+// 引入缩略图插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 // 按需引入mintui组件
 // import { Header,Swipe, SwipeItem, Button, Lazyload  } from 'mint-ui';
 // Vue.component('mt-header', Header);
