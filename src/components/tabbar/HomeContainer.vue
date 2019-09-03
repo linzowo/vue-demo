@@ -1,11 +1,7 @@
 <template>
   <div>
     <!-- 轮播图区域 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in imgList" :key="item.img">
-        <img :src="item.img" />
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper :img-list="imgList"></swiper>
 
     <!-- 六宫格展示区 -->
     <div class="mui-content">
@@ -52,9 +48,12 @@
 </template>
 
 <script>
+// 引入轮播图组件
+import swiper from "../subcompoents/swiper.vue";
 export default {
   data() {
     return {
+      imgApi: "http://myvueapi.io/vue-demo-lunbotu-img.php",
       imgList: []
     };
   },
@@ -63,45 +62,29 @@ export default {
   },
   methods: {
     getlunbotu() {
-      this.$http
-        .get("http://myvueapi.io/vue-demo-lunbotu-img.php")
-        .then(result => {
-          this.imgList = result.body.imgList;
-        });
+      this.$http.get(this.imgApi).then(result => {
+        this.imgList = result.body.imgList;
+      });
     }
+  },
+  components: {
+    swiper: swiper
   }
 };
 </script>
 
 <style lang="scss" scope>
-.mint-swipe {
-  height: 200px;
-}
-.mint-swipe-item {
-  &:nth-child(1) {
-    background-color: red;
-  }
-  &:nth-child(2) {
-    background-color: yellow;
-  }
-  &:nth-child(3) {
-    background-color: blue;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 .mui-content {
   background-color: #fff;
   border: none;
 
   .mui-grid-view.mui-grid-9 {
     border: none;
+    background-color: #fff;
 
     .mui-table-view-cell {
       border: none;
-      background-color: #fff;
+      // background-color: #fff;
 
       img {
         width: 60px;
@@ -115,6 +98,17 @@ export default {
     &:after {
       position: absolute;
     }
+  }
+}
+
+.mint-swipe {
+  height: 200px;
+  // height: auto;
+}
+.mint-swipe-item {
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 </style>

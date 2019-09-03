@@ -21,6 +21,7 @@ import PhotoInfo from "./components/photos/PhotoInfo.vue"
 
 // 商品列表
 import GoodsList from "./components/goods/GoodsList.vue"
+import GoodsInfo from "./components/goods/GoodsInfo.vue"
 
 // 创建一个vue-router实例
 const router = new VueRouter({
@@ -32,6 +33,7 @@ const router = new VueRouter({
     { path: "/home/photolist", component: PhotoList },
     { path: "/home/photoinfo", name: 'photoinfo', component: PhotoInfo },
     { path: "/home/goodslist", component: GoodsList },
+    { path: "/home/goodsinfo", name: 'goodsinfo',component: GoodsInfo },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
     { path: "/search", component: SearchContainer }

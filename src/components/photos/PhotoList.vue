@@ -121,10 +121,13 @@ export default {
 </script>
 
 <style lang="scss" scope>
+// 顶部滑动导航栏
 * {
   touch-action: none;
 }
 
+
+// 图片列表区域
 .photo-list {
   list-style: none;
   margin: 0;
@@ -148,7 +151,6 @@ export default {
 
     .photo-content{
       position: absolute;
-      z-index: 100;
       bottom: 0;
       background-color: rgba(0,0,0,0.6);
       width: 100%;
