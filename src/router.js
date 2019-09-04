@@ -22,6 +22,8 @@ import PhotoInfo from "./components/photos/PhotoInfo.vue"
 // 商品列表
 import GoodsList from "./components/goods/GoodsList.vue"
 import GoodsInfo from "./components/goods/GoodsInfo.vue"
+import GoodsDesc from "./components/goods/GoodsDesc.vue"
+import GoodsComment from "./components/goods/GoodsComment.vue"
 
 // 创建一个vue-router实例
 const router = new VueRouter({
@@ -34,9 +36,11 @@ const router = new VueRouter({
     { path: "/home/photoinfo", name: 'photoinfo', component: PhotoInfo },
     { path: "/home/goodslist", component: GoodsList },
     { path: "/home/goodsinfo", name: 'goodsinfo',component: GoodsInfo },
+    { path: "/home/goodsdesc", name: 'goodsdesc',component: GoodsDesc },
+    { path: "/home/goodscomment", name: 'goodscomment',component: GoodsComment },
     { path: "/member", component: MemberContainer },
     { path: "/shopcart", component: ShopcartContainer },
-    { path: "/search", component: SearchContainer }
+    { path: "/search", component: SearchContainer },
   ],
   linkActiveClass: "mui-active"
 });
