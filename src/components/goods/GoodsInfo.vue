@@ -15,7 +15,7 @@
           <div class="mui-card-content-inner">
             <p class="price">
               <span class="price-old">市场价：￥2999</span>
-              <span class="price-now">销售价：￥2699</span>
+              <span class="price-now">销售价：￥{{goodsPrice}}</span>
             </p>
             <p class="num">
               <span>
@@ -63,6 +63,7 @@ export default {
       id: this.$route.query.id,
       imgApi: "http://myvueapi.io/vue-demo-goods-lunbotu-img.php",
       imgList: [],
+      goodsPrice: 2699,
       goodsNum: 1,
       stock: 60
     };
@@ -84,11 +85,17 @@ export default {
       // 跳转到商品评论页，并传递id方便其获取数据
       this.$router.push({ name: "goodscomment", query: { id: id } });
     },
-    addToShopcart(){
-      console.log(this.goodsNum);
-      
+    addToShopcart() {
+      // console.log(this.goodsNum);
+      // console.log(this.$store);
+      this.$store.commit("addToShopcart", {
+        id: this.id,
+        count: this.goodsNum,
+        price: this.goodsPrice,
+        state: true
+      });
     },
-    getNumboxNum(newVal){
+    getNumboxNum(newVal) {
       this.goodsNum = newVal; // 通过向子组件传递方法获取子组件的值
     }
   },
@@ -127,7 +134,7 @@ export default {
         }
       }
     }
-    div.is-active{
+    div.is-active {
       position: relative; // 实现轮播图自适应高度变化
     }
   }
