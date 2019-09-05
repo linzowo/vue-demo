@@ -20,12 +20,12 @@
             <p class="num">
               <span>
                 购买数量：
-                <numbox></numbox>
+                <numbox :default-num="goodsNum" @get-num="getNumboxNum" :max-num="stock"></numbox>
               </span>
             </p>
             <div class="buy">
               <mt-button type="primary">立即购买</mt-button>
-              <mt-button type="danger" @click="transformFlag = !transformFlag">加入购物车</mt-button>
+              <mt-button type="danger" @click="addToShopcart">加入购物车</mt-button>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
             <p class="goods-id">商品货号：123456789</p>
-            <p class="goods-inventory">库存情况：60件</p>
+            <p class="goods-inventory">库存情况：{{stock}}件</p>
             <p class="goods-time">上架时间：2019年9月4日 09:51:00</p>
             <div class="getMoreInfo">
               <p class="introduction">
@@ -63,7 +63,8 @@ export default {
       id: this.$route.query.id,
       imgApi: "http://myvueapi.io/vue-demo-goods-lunbotu-img.php",
       imgList: [],
-      transformFlag: false
+      goodsNum: 1,
+      stock: 60
     };
   },
   created() {
@@ -82,6 +83,13 @@ export default {
     goToComments(id) {
       // 跳转到商品评论页，并传递id方便其获取数据
       this.$router.push({ name: "goodscomment", query: { id: id } });
+    },
+    addToShopcart(){
+      console.log(this.goodsNum);
+      
+    },
+    getNumboxNum(newVal){
+      this.goodsNum = newVal; // 通过向子组件传递方法获取子组件的值
     }
   },
   components: {
