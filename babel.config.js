@@ -19,6 +19,6 @@ const presets = [
           "libraryName": "mint-ui",
           "style": true
         }],
-      ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
+      // ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
   ];
   module.exports = { presets, plugins };
