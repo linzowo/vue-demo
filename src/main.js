@@ -33,6 +33,9 @@ var store = new Vuex.Store({
       if (!flag) {
         state.shopCart.push(newGoods);
       }
+
+      // 存储数据到本地
+      localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
     }
   },
   getters: {
@@ -87,7 +90,17 @@ import app from "./app.vue";
 var vm = new Vue({
   el: "#app",
   data: {},
-  methods: {},
+  created(){
+    this.getShopCartData()
+  },
+  methods: {
+    getShopCartData(){
+      let shopCartData = JSON.parse(localStorage.getItem('shopCartData'));
+      shopCartData.forEach(ele => {
+        this.$store.commit('addToShopcart',ele)
+      })
+    }
+  },
   render: c => c(app),
   router,
   store
