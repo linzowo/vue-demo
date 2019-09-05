@@ -4,16 +4,26 @@
 import Vue from 'vue';
 // 引入路由模块
 import VueRouter from 'vue-router';
-// 将路由模块挂载到vue上
+// 注册路由模块
 Vue.use(VueRouter);
+// 将自定义的router模块引入
+import router from './router.js'
+
+// vuex模块
+import Vuex from 'vuex';
+Vue.use(Vuex);
+// 创建vuex.store实例对象
+var store = new Vuex.Store({
+  state: {},
+  mutations: {},
+  getters: {}
+})
+
 
 // 引入vue-resource模块
 import VueResource from 'vue-resource';
 // 将VueResource挂载到vue中
 Vue.use(VueResource);
-
-// 将自定义的router模块引入
-import router from './router.js'
 
 // 引入时间格式化组件
 import moment from 'moment'
@@ -52,7 +62,8 @@ var vm = new Vue({
   data: {},
   methods: {},
   render: c => c(app),
-  router
+  router,
+  store
 })
 
 
