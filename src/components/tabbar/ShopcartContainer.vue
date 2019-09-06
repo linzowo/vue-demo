@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="shopcart-goods-list">
-      <div class="mui-card" v-for="item in shopcart" :key="item.id">
+      <div class="mui-card" v-for="(item, index) in shopcart" :key="item.id">
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
             <div class="state-btn">
@@ -17,7 +17,7 @@
               <div class="operation-btn">
                 <span class="price">￥{{item.price}}</span>
                 <numbox :goods-num="item.count" :goods-id="item.id"></numbox>
-                <a href="javascript:" @click="removeFromShopcart(item.id)">删除</a>
+                <a href="javascript:" @click="removeFromShopcart(item.id,index)">删除</a>
               </div>
             </div>
           </div>
@@ -86,12 +86,11 @@ export default {
         });
       });
     },
-    removeFromShopcart(id){
+    removeFromShopcart(id,index){
       // 删除数据库数据
       this.$store.commit('removeFromShopcart',id)
-      // 更新本地数据===》因为这里购物车中的数据和线上展示的数据不是完全一样的所以不使用getters去处理
-      this.shopcart = []
-      this.getGoodsInfo()
+      // 更新本地数据
+      this.shopcart.splice(index,1)
     }
   }
 };

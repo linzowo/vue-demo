@@ -1,7 +1,11 @@
 <template>
   <div class="app-container">
     <!-- header 区域 -->
-    <mt-header fixed title="我的移动端网页"></mt-header>
+    <mt-header fixed title="我的移动端网页">
+      <span slot="left">
+        <mt-button icon="back" @click="goback" v-show="flag">返回</mt-button>
+      </span>
+    </mt-header>
 
     <!-- router-view区域 -->
     <transition>
@@ -33,6 +37,27 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      flag: false // 用来判断是否显示返回按钮的标志
+    };
+  },
+  created(){
+    this.flag = !(this.$route.path === '/home')
+  },
+  methods: {
+    goback() {
+      // 回退到上一页
+      this.$router.go(-1);
+    }
+  },
+  watch: {
+    "$route.path": function(newVal) {
+      this.flag = !(newVal === "/home");
+    }
+  }
+};
 </script>
 
 <style lang="scss" scope>
@@ -89,7 +114,7 @@ html {
   text-overflow: ellipsis;
 }
 
-.mint-header.is-fixed{
+.mint-header.is-fixed {
   z-index: 900;
 }
 </style>
