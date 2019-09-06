@@ -122,7 +122,7 @@ export default {
 
 <style lang="scss" scope>
 // 顶部滑动导航栏
-* {
+.mui-slider {
   touch-action: none;
 }
 

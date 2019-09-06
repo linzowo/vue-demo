@@ -4,23 +4,23 @@
     <div class="mui-card">
       <div class="mui-card-header mui-card-media">
         <div class="mui-media-body">
-          <h1>{{ movie.title }}</h1>
-          <p>{{ movie.original_title }}</p>
+          <h1>{{ title }}</h1>
+          <p>{{ original_title }}</p>
         </div>
       </div>
       <div class="mui-card-content">
-        <img :src="movie.images.small" alt width="100%" />
-        <p>导演：{{ movie.directors[0].name }}</p>
+        <img :src="img" alt width="100%" />
+        <p>导演：{{ directors }}</p>
         <p>
           演员：
-          <span v-for="item in movie.casts" :key="item.id">{{ item.name }}/</span>
+          <span v-for="item in casts" :key="item.id">{{ item.name }}/</span>
         </p>
-        <p>片长：{{ movie.durations[0] }}</p>
+        <p>片长：{{ durations }}</p>
         <p>
           类型：
-          <span v-for="item in movie.genres" :key="item.id">{{item}}/</span>
+          <span v-for="item in genres" :key="item.id">{{item}}/</span>
         </p>
-        <p>评分：{{movie.rating.average}}</p>
+        <p>评分：{{ rating }}</p>
       </div>
       <div class="mui-card-footer">
         <a class="mui-card-link">喜欢</a>
@@ -41,7 +41,14 @@ import comment from '../subcompoents/comment.vue'
 export default {
   data() {
     return {
-      movie: {}
+      img:'',
+      title:'',
+      original_title:'',
+      directors:'',
+      casts:[],
+      durations:'',
+      genres:[],
+      rating:0,
     };
   },
   created() {
@@ -57,7 +64,15 @@ export default {
           if (result.body == "" || result.body.subjects.length == 0) {
             Toast("获取数据失败");
           } else {
-            this.movie = result.body.subjects[this.$route.query.index];
+            let movie = result.body.subjects[this.$route.query.index];
+            this.img = movie.images.small
+            this.title = movie.title
+            this.original_title = movie.original_title
+            this.directors = movie.directors[0].name
+            this.casts = movie.images.casts
+            this.durations = movie.durations[0]
+            this.genres = movie.genres
+            this.rating = movie.rating.average
           }
         });
     }
