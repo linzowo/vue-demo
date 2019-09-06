@@ -37,6 +37,16 @@ var store = new Vuex.Store({
       // 存储数据到本地
       localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
     },
+    removeFromShopcart(state,goodsID){ // 从购物车中删除商品
+      state.shopCart.forEach((ele,i) => {
+        if (ele.id == goodsID){
+          state.shopCart.splice(i,1)
+          return false;
+        }
+      })
+      // 存储数据到本地
+      localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
+    },
     changeGoodsState(state,goodsID){ // 修改商品的选中状态
       state.shopCart.forEach(ele =>{
         if (ele.id == goodsID){

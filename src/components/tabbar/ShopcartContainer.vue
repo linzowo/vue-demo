@@ -17,7 +17,7 @@
               <div class="operation-btn">
                 <span class="price">￥{{item.price}}</span>
                 <numbox :goods-num="item.count" :goods-id="item.id"></numbox>
-                <a href="#">删除</a>
+                <a href="javascript:" @click="removeFromShopcart(item.id)">删除</a>
               </div>
             </div>
           </div>
@@ -49,7 +49,6 @@ import numbox from "../subcompoents/shopcart_numbox.vue";
 export default {
   data() {
     return {
-      value: true,
       shopcart: [] // { id: 商品id, count: 商品数量, price: 商品价格, state: 商品状态, title: 商品标题, img:商品图片}
     };
   },
@@ -86,6 +85,13 @@ export default {
           state: item.state
         });
       });
+    },
+    removeFromShopcart(id){
+      // 删除数据库数据
+      this.$store.commit('removeFromShopcart',id)
+      // 更新本地数据===》因为这里购物车中的数据和线上展示的数据不是完全一样的所以不使用getters去处理
+      this.shopcart = []
+      this.getGoodsInfo()
     }
   }
 };
