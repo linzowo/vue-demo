@@ -36,6 +36,26 @@ var store = new Vuex.Store({
 
       // 存储数据到本地
       localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
+    },
+    changeGoodsState(state,goodsID){ // 修改商品的选中状态
+      state.shopCart.forEach(ele =>{
+        if (ele.id == goodsID){
+          ele.state = !ele.state
+          return false;
+        }
+      })
+      // 存储数据到本地
+      localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
+    },
+    changeGoodsCount(state,goodsData){
+      state.shopCart.forEach(ele =>{
+        if (ele.id == goodsData.id){
+          ele.count = goodsData.newCount
+          return false;
+        }
+      })
+      // 存储数据到本地
+      localStorage.setItem('shopCartData',JSON.stringify(state.shopCart));
     }
   },
   getters: {
@@ -46,6 +66,18 @@ var store = new Vuex.Store({
         countShopCart += ele.count;
       });
       return countShopCart;
+    },
+    countShopcartSlectedGoods(state){
+      // 统计用户选中了多少件商品并计算价格
+      let countNum = 0;
+      let countPrice = 0;
+      state.shopCart.forEach(ele => {
+        if(ele.state){
+          countNum += ele.count
+          countPrice += (ele.price * ele.count)
+        }
+      })
+      return {countNum,countPrice}
     }
   }
 });
