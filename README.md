@@ -50,6 +50,7 @@
 
 ## 版本控制
   - 使用Git进行版本控制
+  - 具体版本更新情况请见 [vue-demo开发记录](https://github.com/linzowo/vue-demo/blob/master/notes/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95.md)
 ## 作者
 [我自己😀](http://linzowo.ml/)
 
