@@ -138,9 +138,11 @@ var vm = new Vue({
   methods: {
     getShopCartData(){
       let shopCartData = JSON.parse(localStorage.getItem('shopCartData'));
-      shopCartData.forEach(ele => {
-        this.$store.commit('addToShopcart',ele)
-      })
+      if(shopCartData){ // 购物车有数据才读取到应用中，否则不读取
+        shopCartData.forEach(ele => {
+          this.$store.commit('addToShopcart',ele)
+        })
+      }
     }
   },
   render: c => c(app),
